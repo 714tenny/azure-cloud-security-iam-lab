@@ -1,4 +1,4 @@
-# Azure Cloud Security & IAM Lab
+# Azure Cloud Security & IAM Lab 
 
 ## Overview
 
