@@ -1,4 +1,4 @@
-# Chavez Industries — Planned Azure Architecture
+# Wu Industries — Planned Azure Architecture
 
 ## Status
 
