@@ -61,8 +61,8 @@ Purpose:
 
 | Resource | Planned Name |
 |---|---|
-| Resource Group | `rg-ci-securitylab-scus` |
-| Virtual Network | `vnet-ci-securitylab-scus` |
+| Resource Group | `rg-ci-securitylab-wus` |
+| Virtual Network | `vnet-ci-securitylab-wus` |
 | Management Subnet | `snet-management` |
 | Workload Subnet | `snet-workload` |
 | Management NSG | `nsg-management` |
