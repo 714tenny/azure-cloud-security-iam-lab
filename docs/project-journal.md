@@ -82,3 +82,51 @@ The Azure architecture has been planned, but infrastructure has not yet been dep
 - Confirm Azure cost protections.
 - Finalize Phase 0.
 - Begin building the Chavez Industries Azure environment.
+---
+
+# Session 2 — August 25, 2026
+
+## Phase
+
+Phase 1 — Azure Foundation
+
+## Objective
+
+Begin deploying the Chavez Industries Azure environment by creating the organizational container for the lab resources.
+
+## Completed
+
+- Created the Azure resource group `rg-ci-securitylab-scus`.
+- Deployed the resource group in the South Central US region.
+- Applied organizational tags for company, environment, and project identification.
+- Verified that the resource group was successfully created and currently contains no deployed resources.
+
+## Resource Configuration
+
+| Setting | Value |
+|---|---|
+| Resource Group | `rg-ci-securitylab-scus` |
+| Region | South Central US |
+| Organization | Chavez Industries |
+| Environment | Lab |
+| Project | Azure-Cloud-Security-IAM |
+
+## Security / Governance Concepts
+
+- Resource organization
+- Cloud asset identification
+- Tagging and governance
+- Resource lifecycle management
+- Consistent naming conventions
+
+## Evidence
+
+- `01-resource-group-created.png`
+
+## Current Status
+
+The Chavez Industries Azure resource group is active and ready for infrastructure deployment.
+
+## Next Step
+
+Create the Chavez Industries Azure Virtual Network and initial subnet structure.
