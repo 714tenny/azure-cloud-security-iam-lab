@@ -4,11 +4,11 @@
 
 **Planning — Not Yet Deployed**
 
-This document describes the initial architecture planned for the Chavez Industries Azure Cloud Security & IAM Lab. The architecture will be updated as resources are actually deployed and tested.
+This document describes the initial architecture planned for the Wu Industries Azure Cloud Security & IAM Lab. The architecture will be updated as resources are actually deployed and tested.
 
 ## Organization
 
-Chavez Industries is a fictional small-business environment with the following departments:
+Wu Industries is a fictional small-business environment with the following departments:
 
 - IT / Cloud Administration
 - Cybersecurity
