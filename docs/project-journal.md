@@ -145,7 +145,7 @@ The region naming convention was later revised after an Azure Policy restriction
 
 ## Phase 0 Result
 
-Phase 0 established the planning, cost-management, documentation, and GitHub foundation required before deploying the Chavez Industries Azure environment.
+Phase 0 established the planning, cost-management, documentation, and GitHub foundation required before deploying the Wu Industries Azure environment.
 
 ---
 
