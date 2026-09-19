@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a hands-on Microsoft Azure cloud security lab built around a fictional small-business environment called **Chavez Industries**.
+This project is a hands-on Microsoft Azure cloud security lab built around a fictional small-business environment called **Wu Industries**.
 
 The goal of the project is to design, deploy, secure, monitor, and assess an Azure environment while developing practical experience with cloud security, identity and access management, networking, security monitoring, risk assessment, remediation, and automation.
 
@@ -37,7 +37,7 @@ Planned areas of focus include:
 
 ## Business Scenario
 
-**Chavez Industries** is a fictional small business used to simulate a realistic Azure environment.
+**Wu Industries** is a fictional small business used to simulate a realistic Azure environment.
 
 The organization will include several departments and user roles:
 
