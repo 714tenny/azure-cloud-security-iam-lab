@@ -1,6 +1,6 @@
 # Azure Cloud Security & IAM Lab — Project Journal
 
-This journal documents the work completed during the **Azure Cloud Security & IAM Lab** for the fictional organization **Chavez Industries**.
+This journal documents the work completed during the **Azure Cloud Security & IAM Lab** for the fictional organization **Wu Industries**.
 
 The purpose of this journal is to track completed work, technical decisions, troubleshooting, security concepts, evidence, and lessons learned throughout the project.
 
@@ -24,7 +24,7 @@ Establish a safe and organized foundation for the Azure security lab before depl
 - Confirmed access to the Azure Portal.
 - Created a **$10 monthly Azure budget** to help monitor lab spending.
 - Configured budget alert thresholds.
-- Selected **Chavez Industries** as the fictional organization for the lab.
+- Selected **Wu Industries** as the fictional organization for the lab.
 - Defined the initial company departments and user roles.
 - Planned the initial Azure network architecture.
 - Established an Azure resource naming convention.
@@ -38,7 +38,7 @@ Establish a safe and organized foundation for the Azure security lab before depl
 
 ## Company Scenario
 
-**Chavez Industries** is a fictional small business being used to simulate a realistic Azure cloud environment.
+**Wu Industries** is a fictional small business being used to simulate a realistic Azure cloud environment.
 
 The company will eventually use Azure resources, Microsoft Entra ID, networking, IAM, security controls, logging, monitoring, and automation.
 
@@ -72,7 +72,7 @@ These roles will eventually be used to practice:
 
 ## Initial Network Plan
 
-The initial Chavez Industries network design uses the following private address space:
+The initial Wu Industries network design uses the following private address space:
 
 ### Virtual Network
 
@@ -157,7 +157,7 @@ Phase 0 established the planning, cost-management, documentation, and GitHub fou
 
 ## Objective
 
-Begin deploying the Chavez Industries Azure environment and validate that the planned architecture can be deployed within the restrictions of the Azure for Students subscription.
+Begin deploying the Wu Industries Azure environment and validate that the planned architecture can be deployed within the restrictions of the Azure for Students subscription.
 
 ## Resource Group Deployment
 
@@ -173,7 +173,7 @@ The following tags were applied:
 
 | Tag | Value |
 |---|---|
-| Organization | Chavez Industries |
+| Organization | Wu Industries |
 | Environment | Lab |
 | Project | Azure-Cloud-Security-IAM |
 
@@ -181,7 +181,7 @@ The resource group was successfully deployed and contained no additional resourc
 
 ## Why Resource Groups Matter
 
-The resource group provides a logical container for the Azure resources associated with the Chavez Industries security lab.
+The resource group provides a logical container for the Azure resources associated with the Wu Industries security lab.
 
 Using a dedicated resource group helps support:
 
@@ -204,7 +204,7 @@ The subscription identifier was hidden before the screenshot was retained for po
 
 ## Virtual Network Deployment Attempt
 
-The next planned resource was the Chavez Industries Virtual Network.
+The next planned resource was the Wu Industries Virtual Network.
 
 The following configuration was prepared:
 
@@ -262,7 +262,7 @@ The planned network configuration was therefore technically valid but did not co
 
 ### Resolution Decision
 
-**West US** was selected as the new deployment region for the Chavez Industries lab.
+**West US** was selected as the new deployment region for the Wu Industries lab.
 
 The region abbreviation used in the resource naming convention will change from:
 
@@ -355,7 +355,7 @@ The VNet and subnets have **not yet been successfully deployed**.
 ## Next Steps
 
 1. Remove the unused South Central US resource group once appropriate.
-2. Create the Chavez Industries resource group in West US:
+2. Create the Wu Industries resource group in West US:
    - `rg-ci-securitylab-wus`
 3. Verify the organizational tags.
 4. Deploy the Virtual Network:
