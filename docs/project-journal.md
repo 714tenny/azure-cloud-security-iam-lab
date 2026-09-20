@@ -438,3 +438,99 @@ The next stage of the project is network security configuration using Azure Netw
 3. Associate each NSG with its corresponding subnet.
 4. Configure and document network security rules.
 5. Validate the resulting network security configuration.
+---
+
+# Session 4 — September 20, 2026
+
+## Phase
+
+**Phase 2 — Network Security Configuration**
+
+## Objective
+
+Implement subnet-level network security controls for the Wu Industries Azure environment using Network Security Groups.
+
+## Completed
+
+- Created the management Network Security Group:
+  - `nsg-management`
+- Created the workload Network Security Group:
+  - `nsg-workload`
+- Associated:
+  - `nsg-management` with `snet-management`
+  - `nsg-workload` with `snet-workload`
+
+### Management Subnet Security
+
+Configured `nsg-management` with the following inbound rule:
+
+- `Deny-Workload-to-Management`
+  - Priority: `200`
+  - Source: `10.10.2.0/24`
+  - Protocol: `Any`
+  - Destination port: `Any`
+  - Action: `Deny`
+
+This prevents systems in the workload subnet from initiating connections into the management subnet.
+
+### Workload Subnet Security
+
+Configured `nsg-workload` with the following inbound rules:
+
+- `Allow-Management-SSH`
+  - Priority: `100`
+  - Source: `10.10.1.0/24`
+  - Protocol: `TCP`
+  - Destination port: `22`
+  - Action: `Allow`
+
+- `Allow-Management-RDP`
+  - Priority: `110`
+  - Source: `10.10.1.0/24`
+  - Protocol: `TCP`
+  - Destination port: `3389`
+  - Action: `Allow`
+
+- `Deny-Other-VNet-Inbound`
+  - Priority: `200`
+  - Source: `VirtualNetwork`
+  - Protocol: `Any`
+  - Destination port: `Any`
+  - Action: `Deny`
+
+## Security Design
+
+The management subnet is permitted to initiate SSH and RDP connections to workloads.
+
+The workload subnet is prevented from initiating connections into the management subnet.
+
+This configuration demonstrates network segmentation and least-privilege access between Azure subnets.
+
+## Evidence Captured
+
+- `docs/evidence/04-nsg-management-rules.png`
+- `docs/evidence/05-nsg-workload-rules.png`
+
+## Security Concepts Practiced
+
+- Network Security Groups
+- Inbound security rules
+- Rule priority
+- Network segmentation
+- Least privilege
+- Administrative access control
+- Subnet-level security
+
+## Current Status
+
+The Wu Industries virtual network and subnet security controls are now deployed.
+
+The next stage is to deploy workloads and validate the network security rules using actual systems.
+
+## Next Steps
+
+1. Deploy test workloads.
+2. Place workloads in the appropriate subnets.
+3. Test allowed management traffic.
+4. Test blocked workload-to-management traffic.
+5. Document validation results.
