@@ -2,10 +2,19 @@
 
 ## Status
 
-**Planning — Not Yet Deployed**
+**Azure Foundation — Partially Deployed**
 
-This document describes the initial architecture planned for the Wu Industries Azure Cloud Security & IAM Lab. The architecture will be updated as resources are actually deployed and tested.
+The core Wu Industries network infrastructure has been successfully deployed in West US.
 
+### Deployed Resources
+
+- Resource Group: `rg-wi-securitylab-wus`
+- Virtual Network: `vnet-wi-securitylab-wus`
+- Address Space: `10.10.0.0/16`
+- Management Subnet: `snet-management` — `10.10.1.0/24`
+- Workload Subnet: `snet-workload` — `10.10.2.0/24`
+
+Network Security Groups, workloads, identity controls, monitoring, and additional security configurations will be added in later phases.
 ## Organization
 
 Wu Industries is a fictional small-business environment with the following departments:
@@ -61,14 +70,14 @@ Purpose:
 
 | Resource | Planned Name |
 |---|---|
-| Resource Group | `rg-ci-securitylab-wus` |
-| Virtual Network | `vnet-ci-securitylab-wus` |
+| Resource Group | `rg-wi-securitylab-wus` |
+| Virtual Network | `vnet-wi-securitylab-wus` |
 | Management Subnet | `snet-management` |
 | Workload Subnet | `snet-workload` |
 | Management NSG | `nsg-management` |
 | Workload NSG | `nsg-workload` |
-| Windows VM | `vm-ci-win01` |
-| Linux VM | `vm-ci-linux01` |
+| Windows VM | `vm-wi-win01` |
+| Linux VM | `vm-wi-linux01` |
 
 ## Security Design Goals
 
