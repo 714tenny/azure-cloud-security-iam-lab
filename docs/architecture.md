@@ -15,6 +15,9 @@ The core Wu Industries network infrastructure has been successfully deployed in 
 - Workload Subnet: `snet-workload` — `10.10.2.0/24`
 
 Network Security Groups, workloads, identity controls, monitoring, and additional security configurations will be added in later phases.
+
+- Management NSG: `nsg-management` — associated with `snet-management`
+- Workload NSG: `nsg-workload` — associated with `snet-workload`
 ## Organization
 
 Wu Industries is a fictional small-business environment with the following departments:
@@ -41,7 +44,27 @@ The initial environment is planned to contain:
 - Azure logging and monitoring
 
 ## Network Design
+## Network Security Design
 
+### Management Subnet
+
+`nsg-management` protects `snet-management`.
+
+Custom inbound control:
+
+- Deny traffic initiated from `10.10.2.0/24` (workload subnet) to the management subnet.
+
+### Workload Subnet
+
+`nsg-workload` protects `snet-workload`.
+
+Custom inbound controls:
+
+- Allow SSH (TCP 22) from `10.10.1.0/24`
+- Allow RDP (TCP 3389) from `10.10.1.0/24`
+- Deny all other Virtual Network inbound traffic
+
+This design allows explicitly authorized administrative access from the management subnet while preventing the workload subnet from initiating connections into the management subnet.
 ### Virtual Network
 
 `10.10.0.0/16`
