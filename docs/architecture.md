@@ -1,4 +1,4 @@
-# Wu Industries — Planned Azure Architecture
+# Wu Industries — Azure Architecture
 
 ## Status
 
@@ -25,7 +25,7 @@ Wu Industries is a fictional small-business environment with the following depar
 - Human Resources
 - Operations
 
-## Planned Azure Environment
+##  Azure Environment
 
 The initial environment is planned to contain:
 
@@ -40,7 +40,7 @@ The initial environment is planned to contain:
 - Azure RBAC assignments
 - Azure logging and monitoring
 
-## Planned Network Design
+## Network Design
 
 ### Virtual Network
 
