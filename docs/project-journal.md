@@ -367,3 +367,74 @@ The VNet and subnets have **not yet been successfully deployed**.
 7. Capture portfolio evidence.
 8. Update the project journal with the successful deployment.
 9. Continue into Azure network security configuration.
+---
+
+# Session 3 — September 20, 2026
+
+## Phase
+
+**Phase 1 — Azure Foundation**
+
+## Objective
+
+Deploy and validate the core Azure networking foundation for the Wu Industries cloud security lab.
+
+## Completed
+
+- Confirmed the West US resource group:
+  - `rg-wi-securitylab-wus`
+- Verified organizational tags:
+  - Organization: `Wu Industries`
+  - Environment: `Lab`
+  - Project: `Azure-Cloud-Security-IAM`
+- Created the Azure Virtual Network:
+  - `vnet-wi-securitylab-wus`
+- Deployed the Virtual Network in:
+  - `West US`
+- Configured the VNet address space:
+  - `10.10.0.0/16`
+- Created the management subnet:
+  - `snet-management`
+  - `10.10.1.0/24`
+- Created the workload subnet:
+  - `snet-workload`
+  - `10.10.2.0/24`
+- Verified both subnets were successfully deployed.
+- Azure Bastion was left disabled.
+- Azure Firewall was left disabled.
+- Azure DDoS Network Protection was left disabled.
+
+## Evidence Captured
+
+- `docs/evidence/02-vnet-created.png`
+- `docs/evidence/03-subnets-created.png`
+
+## Security Concepts Practiced
+
+- Azure Virtual Network deployment
+- Network segmentation
+- Private IPv4 addressing
+- Subnet design
+- Resource organization
+- Cloud cost awareness
+
+## Current Status
+
+The Wu Industries Azure networking foundation has been successfully deployed in West US.
+
+Current network configuration:
+
+- VNet: `vnet-wi-securitylab-wus`
+- Address space: `10.10.0.0/16`
+- Management subnet: `10.10.1.0/24`
+- Workload subnet: `10.10.2.0/24`
+
+The next stage of the project is network security configuration using Azure Network Security Groups.
+
+## Next Steps
+
+1. Create `nsg-management`.
+2. Create `nsg-workload`.
+3. Associate each NSG with its corresponding subnet.
+4. Configure and document network security rules.
+5. Validate the resulting network security configuration.
