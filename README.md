@@ -10,9 +10,27 @@ Rather than only deploying Azure resources, this project will focus on understan
 
 ## Current Status
 
-**Phase 0 — Planning and Environment Setup**
+**Phase 1 — Azure Foundation / Networking**
 
-The Azure environment has not yet been deployed.
+The core Azure networking environment has been successfully deployed in West US.
+
+### Completed
+
+- Resource Group: `rg-wi-securitylab-wus`
+- Virtual Network: `vnet-wi-securitylab-wus`
+- Address Space: `10.10.0.0/16`
+- Management Subnet: `snet-management` — `10.10.1.0/24`
+- Workload Subnet: `snet-workload` — `10.10.2.0/24`
+- Azure resource tagging
+- Azure Policy troubleshooting and region remediation
+- Portfolio evidence capture and documentation
+
+### Next
+
+- Create Network Security Groups
+- Associate NSGs with the management and workload subnets
+- Configure and validate network security rules
+- Continue into Microsoft Entra ID and IAM
 
 ## Project Objectives
 
@@ -49,7 +67,7 @@ The organization will include several departments and user roles:
 
 Different users and groups will receive different levels of access so that IAM, RBAC, least privilege, and separation-of-duties concepts can be tested.
 
-## Planned Architecture
+## Architecture
 
 The initial environment is planned to include:
 
@@ -65,7 +83,7 @@ The initial environment is planned to include:
 - Logging and monitoring
 - Security findings and remediation
 
-### Planned Network
+### Network
 
 - VNet: `10.10.0.0/16`
 - Management Subnet: `10.10.1.0/24`
