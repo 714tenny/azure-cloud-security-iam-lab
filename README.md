@@ -10,6 +10,31 @@ Rather than only deploying Azure resources, this project will focus on understan
 
 ## Current Status
 
+**Phase 2 — Network Security Configuration**
+
+The core Azure network and subnet-level security controls have been deployed in West US.
+
+### Completed
+
+- Resource Group: `rg-wi-securitylab-wus`
+- Virtual Network: `vnet-wi-securitylab-wus`
+- Management Subnet: `snet-management`
+- Workload Subnet: `snet-workload`
+- Management NSG: `nsg-management`
+- Workload NSG: `nsg-workload`
+- Subnet-to-NSG associations
+- Management-to-workload SSH/RDP access rules
+- Workload-to-management isolation rule
+- Azure Policy troubleshooting
+- Portfolio evidence and documentation
+
+### Next
+
+- Deploy test workloads
+- Validate allowed management traffic
+- Validate blocked workload-to-management traffic
+- Document network security testing results
+
 **Phase 1 — Azure Foundation / Networking**
 
 The core Azure networking environment has been successfully deployed in West US.
