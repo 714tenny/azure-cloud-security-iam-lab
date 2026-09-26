@@ -534,3 +534,131 @@ The next stage is to deploy workloads and validate the network security rules us
 3. Test allowed management traffic.
 4. Test blocked workload-to-management traffic.
 5. Document validation results.
+---
+
+# Session 5 — September 26, 2026
+
+## Phase
+
+**Phase 2 — Network Security Validation**
+
+## Objective
+
+Validate the deployed Wu Industries subnet and Network Security Group configuration while maintaining the project's cost-control requirements.
+
+## Test Network Interfaces
+
+Two network interfaces were created to represent systems in each subnet:
+
+- `nic-wi-mgmt01`
+  - Subnet: `snet-management`
+  - Private IP: `10.10.1.4`
+
+- `nic-wi-workload01`
+  - Subnet: `snet-workload`
+  - Private IP: `10.10.2.4`
+
+The management NIC was initially assigned to an unintended subnet and received an address in the `10.10.0.0/24` range.
+
+The configuration was corrected by moving the NIC to:
+
+- `snet-management`
+- `10.10.1.0/24`
+
+An unintended temporary subnet was also identified and removed after confirming it was no longer needed.
+
+## Validation Approach
+
+Live virtual-machine testing was originally planned.
+
+However, an eligible free-tier virtual machine size was not available in West US for the Azure for Students subscription.
+
+To avoid unnecessary cloud costs, paid virtual machines were not deployed.
+
+An attempt was made to use Azure NSG diagnostics with the test network interfaces. Azure reported that the network interface must be associated with a virtual machine for that diagnostic workflow.
+
+The validation approach was therefore changed to direct Azure configuration verification using Azure Cloud Shell and Azure CLI.
+
+## Azure CLI Validation
+
+Azure CLI was used to verify subnet-to-NSG associations.
+
+The following associations were confirmed:
+
+- `snet-management` → `nsg-management`
+- `snet-workload` → `nsg-workload`
+
+The management NSG was verified to contain:
+
+### `Deny-Workload-to-Management`
+
+- Priority: `200`
+- Direction: `Inbound`
+- Source: `10.10.2.0/24`
+- Protocol: `Any`
+- Destination port: `Any`
+- Action: `Deny`
+
+The workload NSG was verified to contain:
+
+### `Allow-Management-SSH`
+
+- Priority: `100`
+- Direction: `Inbound`
+- Source: `10.10.1.0/24`
+- Protocol: `TCP`
+- Destination port: `22`
+- Action: `Allow`
+
+### `Allow-Management-RDP`
+
+- Priority: `110`
+- Direction: `Inbound`
+- Source: `10.10.1.0/24`
+- Protocol: `TCP`
+- Destination port: `3389`
+- Action: `Allow`
+
+### `Deny-Other-VNet-Inbound`
+
+- Priority: `200`
+- Direction: `Inbound`
+- Source: `VirtualNetwork`
+- Protocol: `Any`
+- Destination port: `Any`
+- Action: `Deny`
+
+## Validation Limitation
+
+The deployed Azure configuration was validated at the control-plane level using Azure CLI.
+
+Live packet-flow testing was not performed because a suitable free-tier virtual machine size was unavailable in the selected Azure region.
+
+The project therefore does not claim that live SSH, RDP, or blocked packet flows were tested.
+
+## Evidence Captured
+
+- `docs/evidence/06-test-network-interfaces.png`
+- `docs/evidence/07-subnet-nsg-associations.png`
+- `docs/evidence/08a-subnet-and-management-validation.png`
+- `docs/evidence/08b-workload-nsg-validation.png`
+
+## Security Concepts Practiced
+
+- Azure Cloud Shell
+- Azure CLI
+- Network Security Group validation
+- Subnet-to-NSG association
+- Network segmentation
+- Rule priority
+- Least privilege
+- Configuration troubleshooting
+- Cost-aware cloud security testing
+
+## Current Status
+
+The Azure networking and Network Security Group configuration has been deployed and validated at the configuration level.
+
+The networking phase is complete.
+
+The next phase will focus on Microsoft Entra ID, identity management, security groups, Azure RBAC, and least-privilege access.
