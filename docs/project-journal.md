@@ -841,3 +841,65 @@ The logs were correlated with the security findings and remediation evidence alr
 Security remediation actions have been verified through both direct configuration validation and Azure Activity Log evidence.
 
 The next phase will focus on Azure CLI automation for repeatable security configuration review.
+---
+
+# Session 8 — September 27, 2026
+
+## Phase
+
+**Phase 5 — Azure CLI Security Automation**
+
+## Objective
+
+Create a repeatable Azure CLI-based security review script for the Wu Industries environment.
+
+## Automation Created
+
+A Bash security review script was created:
+
+- `scripts/azure-security-review.sh`
+
+The script automatically reviews:
+
+- Resource group information
+- Virtual Network configuration
+- Subnet and NSG associations
+- Management NSG rules
+- Workload NSG rules
+- Managed identity RBAC assignments
+- SSH access restrictions
+- Presence of temporary insecure SSH rules
+- Excessive Contributor permissions
+
+## Automated Security Checks
+
+The script validated:
+
+- SSH access is restricted to `10.10.1.0/24`.
+- `TEMP-Allow-SSH-Any` is not present.
+- `mi-wi-network-operator` does not have the broad `Contributor` role.
+- `mi-wi-security-audit` retains the `Reader` role.
+- `mi-wi-network-operator` retains the `Network Contributor` role.
+
+All automated security checks returned `PASS`.
+
+## Evidence Captured
+
+- `docs/evidence/20-azure-security-review-automation.png`
+
+## Security Concepts Practiced
+
+- Azure CLI
+- Bash scripting
+- Security automation
+- Configuration validation
+- RBAC validation
+- NSG validation
+- Repeatable security reviews
+- Least-privilege verification
+
+## Current Status
+
+The Wu Industries Azure environment can now be reviewed through a repeatable Azure CLI security validation script.
+
+The next phase will focus on final security assessment, architecture documentation, and portfolio cleanup.
