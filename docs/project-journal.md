@@ -662,3 +662,111 @@ The Azure networking and Network Security Group configuration has been deployed 
 The networking phase is complete.
 
 The next phase will focus on Microsoft Entra ID, identity management, security groups, Azure RBAC, and least-privilege access.
+---
+
+# Session 6 — September 26, 2026
+
+## Phase
+
+**Phase 3 — Identity and Access Management / Azure RBAC**
+
+## Objective
+
+Implement and validate least-privilege access controls for the Wu Industries Azure environment using managed identities and Azure Role-Based Access Control.
+
+## Microsoft Entra ID Limitation
+
+Microsoft Entra ID user and group administration was evaluated for the lab.
+
+The Azure for Students subscription is associated with the University of Texas at San Antonio directory, and the account did not have permission to create or manage tenant-level Entra ID users and groups.
+
+The Azure Portal returned an HTTP 401 access error.
+
+To remain within the authorized permissions of the environment, the project used Azure user-assigned managed identities to demonstrate IAM and RBAC concepts instead.
+
+## Managed Identities Created
+
+### Security Audit Identity
+
+Created:
+
+- `mi-wi-security-audit`
+
+Assigned Azure RBAC role:
+
+- `Reader`
+
+Scope:
+
+- `rg-wi-securitylab-wus`
+
+Purpose:
+
+Provide read-only visibility into Azure resources without allowing configuration changes.
+
+### Network Operator Identity
+
+Created:
+
+- `mi-wi-network-operator`
+
+Assigned Azure RBAC role:
+
+- `Network Contributor`
+
+Scope:
+
+- `rg-wi-securitylab-wus`
+
+Purpose:
+
+Allow management of Azure networking resources without granting broad Owner-level permissions.
+
+## Least-Privilege Design
+
+The two identities were assigned different permissions based on job function:
+
+- Security audit identity → read-only access
+- Network operator identity → network-management permissions
+
+This demonstrates:
+
+- Role-Based Access Control
+- Least privilege
+- Separation of duties
+- Job-function-based access
+- Scoped permissions
+
+## Azure CLI Validation
+
+Azure Cloud Shell and Azure CLI were used to verify the deployed RBAC assignments.
+
+The validation confirmed:
+
+- `mi-wi-security-audit` → `Reader`
+- `mi-wi-network-operator` → `Network Contributor`
+
+Both assignments were scoped to the Wu Industries resource group.
+
+## Evidence Captured
+
+- `docs/evidence/09-rbac-reader-assignment.png`
+- `docs/evidence/10-rbac-network-contributor.png`
+- `docs/evidence/11-rbac-cli-validation.png`
+
+## Security Concepts Practiced
+
+- Azure RBAC
+- Managed identities
+- Least privilege
+- Separation of duties
+- Resource-group scope
+- Role assignment validation
+- Azure CLI
+- Identity governance constraints
+
+## Current Status
+
+The Azure RBAC and least-privilege portion of the Wu Industries lab has been deployed and validated.
+
+The next phase will focus on identifying intentional security misconfigurations, assessing their risk, remediating them, and validating the corrected configuration.
