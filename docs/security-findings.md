@@ -98,3 +98,84 @@ Validation confirmed:
 The overly permissive SSH rule was successfully identified, assessed, removed, and validated.
 
 The final configuration follows a least-privilege approach by limiting administrative SSH access to the designated management subnet.
+---
+
+# Finding 002 — Excessive RBAC Permissions
+
+## Status
+
+**Remediated and Validated**
+
+## Affected Identity
+
+- Managed Identity: `mi-wi-network-operator`
+- Scope: `rg-wi-securitylab-wus`
+
+## Finding
+
+The network operator managed identity was temporarily assigned the broad Azure `Contributor` role at the resource-group scope.
+
+The identity already had the more appropriate:
+
+- `Network Contributor`
+
+role for its intended job function.
+
+The additional `Contributor` assignment therefore granted permissions beyond what were required.
+
+## Risk Assessment
+
+**Risk Level: High**
+
+The `Contributor` role provides broad resource-management permissions across the assigned scope.
+
+For an identity whose responsibility is limited to Azure networking, this violates the principle of least privilege.
+
+Potential risks include:
+
+- Unauthorized modification of non-network resources
+- Accidental resource deletion
+- Unnecessary administrative capability
+- Increased impact if the identity were compromised
+- Reduced separation of duties
+
+## Evidence — Finding
+
+`docs/evidence/15-finding-excessive-rbac-permissions.png`
+
+The evidence shows `mi-wi-network-operator` assigned the broader `Contributor` role.
+
+## Remediation
+
+The excessive `Contributor` role assignment was removed.
+
+The identity retained only:
+
+- Role: `Network Contributor`
+- Scope: `rg-wi-securitylab-wus`
+
+This provides the permissions required to manage networking resources without granting broader resource-management access.
+
+## Evidence — Remediation
+
+`docs/evidence/16-remediation-rbac-least-privilege.png`
+
+## Validation
+
+Azure Cloud Shell and Azure CLI were used to verify the final RBAC configuration.
+
+Validation confirmed that:
+
+- `Contributor` was removed.
+- `Network Contributor` remained assigned.
+- The assignment remained scoped to the Wu Industries resource group.
+
+## Evidence — Validation
+
+`docs/evidence/17-rbac-remediation-cli-validation.png`
+
+## Final Result
+
+The excessive RBAC assignment was successfully identified, assessed, removed, and validated.
+
+The final configuration follows the principle of least privilege by granting the network operator only the Azure networking permissions required for its job function.
