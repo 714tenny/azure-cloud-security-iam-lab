@@ -770,3 +770,74 @@ Both assignments were scoped to the Wu Industries resource group.
 The Azure RBAC and least-privilege portion of the Wu Industries lab has been deployed and validated.
 
 The next phase will focus on identifying intentional security misconfigurations, assessing their risk, remediating them, and validating the corrected configuration.
+---
+
+# Session 7 — September 27, 2026
+
+## Phase
+
+**Phase 4 — Logging, Monitoring, and Security Investigation**
+
+## Objective
+
+Use Azure Activity Log to investigate and verify security-related administrative changes made during the Wu Industries security assessment.
+
+## Activity Log Investigation
+
+Azure Activity Log was reviewed to identify administrative events associated with security remediation actions performed during the lab.
+
+Two remediation events were investigated.
+
+### RBAC Remediation Event
+
+The Activity Log recorded the removal of the excessive `Contributor` role assignment.
+
+The event showed:
+
+- Operation: `Delete role assignment`
+- Status: Successful
+- Identity affected: `mi-wi-network-operator`
+- Removed role: `Contributor`
+- Scope: `rg-wi-securitylab-wus`
+
+This provided logging evidence that the excessive RBAC permission identified in Finding 002 was removed.
+
+### NSG Remediation Event
+
+The Activity Log also recorded removal of the temporary overly permissive SSH rule.
+
+The event showed:
+
+- Operation: `Delete Security Rule`
+- Affected NSG: `nsg-workload`
+- Removed rule: `TEMP-Allow-SSH-Any`
+
+This provided logging evidence that the insecure SSH rule identified in Finding 001 was removed.
+
+## Investigation Result
+
+Azure Activity Log provided an audit trail of security-relevant administrative actions performed in the environment.
+
+The logs were correlated with the security findings and remediation evidence already collected during the project.
+
+## Evidence Captured
+
+- `docs/evidence/18-activity-log-rbac-remediation.png`
+- `docs/evidence/19-activity-log-nsg-remediation.png`
+
+## Security Concepts Practiced
+
+- Azure Activity Log
+- Administrative event monitoring
+- Audit trails
+- Security investigation
+- Change tracking
+- RBAC monitoring
+- Network security monitoring
+- Evidence correlation
+
+## Current Status
+
+Security remediation actions have been verified through both direct configuration validation and Azure Activity Log evidence.
+
+The next phase will focus on Azure CLI automation for repeatable security configuration review.
