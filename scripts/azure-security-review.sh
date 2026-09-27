@@ -39,7 +39,7 @@ done < <(
     az network vnet subnet list \
       --resource-group "$RG" \
       --vnet-name "$VNET" \
-      --query "[].[name,addressPrefix,networkSecurityGroup.id]" \
+      --query "[].[name,addressPrefixes[0],networkSecurityGroup.id]" \
       -o tsv
 )
 
