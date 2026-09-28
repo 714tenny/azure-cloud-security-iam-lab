@@ -119,5 +119,54 @@ The environment will be designed to explore:
 
 ## Architecture Diagram
 
-A final architecture diagram will be added after the environment has actually been deployed and validated.
+```mermaid
+flowchart TB
+
+    Azure["Microsoft Azure<br/>Azure for Students"]
+
+    RG["Resource Group<br/>rg-wi-securitylab-wus<br/>West US"]
+
+    VNET["Virtual Network<br/>vnet-wi-securitylab-wus<br/>10.10.0.0/16"]
+
+    MGMT["Management Subnet<br/>snet-management<br/>10.10.1.0/24"]
+    WORK["Workload Subnet<br/>snet-workload<br/>10.10.2.0/24"]
+
+    NSGM["nsg-management<br/>Deny workload → management"]
+    NSGW["nsg-workload<br/>Allow SSH/RDP from management<br/>Deny other VNet inbound"]
+
+    NICM["nic-wi-mgmt01<br/>10.10.1.4"]
+    NICW["nic-wi-workload01<br/>10.10.2.4"]
+
+    AUDIT["Managed Identity<br/>mi-wi-security-audit<br/>Reader"]
+    NETOP["Managed Identity<br/>mi-wi-network-operator<br/>Network Contributor"]
+
+    LOG["Azure Activity Log<br/>Administrative audit events"]
+
+    SCRIPT["Azure CLI Security Review<br/>scripts/azure-security-review.sh"]
+
+    Azure --> RG
+    RG --> VNET
+
+    VNET --> MGMT
+    VNET --> WORK
+
+    NSGM --> MGMT
+    NSGW --> WORK
+
+    MGMT --> NICM
+    WORK --> NICW
+
+    RG --> AUDIT
+    RG --> NETOP
+
+    RG --> LOG
+
+    SCRIPT -. validates .-> VNET
+    SCRIPT -. validates .-> NSGM
+    SCRIPT -. validates .-> NSGW
+    SCRIPT -. validates .-> AUDIT
+    SCRIPT -. validates .-> NETOP
+```
+
+
 
