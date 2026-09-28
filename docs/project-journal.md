@@ -899,3 +899,56 @@ All automated security checks returned `PASS`.
 The Wu Industries Azure environment can now be reviewed through a repeatable Azure CLI security validation script.
 
 The next phase will focus on final security assessment, architecture documentation, and portfolio cleanup.
+---
+
+# Session 9 — September 27, 2026
+
+## Phase
+
+**Phase 6 — Final Security Assessment and Portfolio Completion**
+
+## Objective
+
+Finalize the Wu Industries Azure Cloud Security & IAM Lab and prepare the repository for portfolio use.
+
+## Completed
+
+- Completed the final Azure security assessment.
+- Finalized the Azure security architecture documentation.
+- Added the completed architecture diagram.
+- Reviewed and finalized the project README.
+- Verified both documented security findings were remediated and validated.
+- Confirmed Azure Activity Log evidence for remediation actions.
+- Confirmed Azure CLI security validation.
+- Confirmed the Bash-based security review automation.
+- Reviewed evidence screenshots for sensitive information.
+- Redacted the Azure subscription identifier from RBAC validation evidence.
+- Removed the obsolete reference to the unavailable original resource-group screenshot.
+- Reviewed repository documentation for consistency and accuracy.
+
+## Final Security State
+
+At project completion:
+
+- SSH administrative access is restricted to the management subnet.
+- The temporary unrestricted SSH rule is no longer present.
+- The network operator does not have the broad `Contributor` role.
+- The network operator retains `Network Contributor`.
+- The security audit identity retains `Reader`.
+- Network Security Groups remain associated with the intended subnets.
+- Security remediation actions are documented through Azure Activity Log.
+- Azure CLI and the security review script validate the final configuration.
+
+## Project Limitations
+
+Live VM-based packet-flow testing was not performed because a suitable free-tier virtual machine size was unavailable in the selected Azure region.
+
+Tenant-level Microsoft Entra ID user and group administration was unavailable because the subscription was connected to a university-managed directory.
+
+These limitations are documented and the project does not claim testing or configuration that was not actually performed.
+
+## Final Status
+
+**Project Complete**
+
+The Wu Industries Azure Cloud Security & IAM Lab is complete and documented for portfolio use.
