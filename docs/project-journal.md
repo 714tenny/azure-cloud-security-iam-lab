@@ -192,15 +192,11 @@ Using a dedicated resource group helps support:
 - Access management
 - Cloud governance
 
-## Evidence Captured
+## Deployment Record
 
-A screenshot was captured showing the successfully deployed resource group and its organizational tags.
+The resource group was successfully deployed with the planned organizational tags.
 
-Evidence filename:
-
-`01-resource-group-created.png`
-
-The subscription identifier was hidden before the screenshot was retained for potential portfolio use.
+The original deployment screenshot is no longer retained in the repository.
 
 ## Virtual Network Deployment Attempt
 
