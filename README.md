@@ -10,52 +10,69 @@ Rather than only deploying Azure resources, this project will focus on understan
 
 ## Current Status
 
-**Phase 2 — Network Security Configuration**
+**Final Security Assessment and Portfolio Documentation**
 
-The core Azure network and subnet-level security controls have been deployed in West US.
-
-### Completed
-
-- Resource Group: `rg-wi-securitylab-wus`
-- Virtual Network: `vnet-wi-securitylab-wus`
-- Management Subnet: `snet-management`
-- Workload Subnet: `snet-workload`
-- Management NSG: `nsg-management`
-- Workload NSG: `nsg-workload`
-- Subnet-to-NSG associations
-- Management-to-workload SSH/RDP access rules
-- Workload-to-management isolation rule
-- Azure Policy troubleshooting
-- Portfolio evidence and documentation
-
-### Next
-
-- Deploy test workloads
-- Validate allowed management traffic
-- Validate blocked workload-to-management traffic
-- Document network security testing results
-
-**Phase 1 — Azure Foundation / Networking**
-
-The core Azure networking environment has been successfully deployed in West US.
+The Wu Industries Azure Cloud Security & IAM Lab has been deployed, secured, assessed, remediated, validated, monitored, and automated.
 
 ### Completed
 
-- Resource Group: `rg-wi-securitylab-wus`
-- Virtual Network: `vnet-wi-securitylab-wus`
-- Address Space: `10.10.0.0/16`
-- Management Subnet: `snet-management` — `10.10.1.0/24`
-- Workload Subnet: `snet-workload` — `10.10.2.0/24`
-- Azure resource tagging
-- Azure Policy troubleshooting and region remediation
-- Portfolio evidence capture and documentation
+- Azure resource organization and tagging
+- Virtual Network and subnet deployment
+- Network Security Groups
+- Network segmentation
+- Managed identities
+- Azure RBAC
+- Least-privilege access
+- Security misconfiguration assessment
+- Risk analysis
+- Remediation and validation
+- Azure Activity Log investigation
+- Azure CLI configuration validation
+- Bash-based security review automation
+- Final security assessment
+- Architecture documentation
 
-### Next
+  ## Key Security Findings
 
-- Create Network Security Groups
-- Associate NSGs with the management and workload subnets
-- Configure and validate network security rules
-- Continue into Microsoft Entra ID and IAM
+### Finding 001 — Overly Permissive SSH Access
+
+A temporary Network Security Group rule allowed SSH access from any source.
+
+The rule was identified, assessed as high risk, removed, and validated through Azure CLI.
+
+### Finding 002 — Excessive RBAC Permissions
+
+The network operator identity was temporarily assigned the broad `Contributor` role.
+
+The excessive assignment was removed and the identity retained only the more appropriate `Network Contributor` role.
+
+Both findings followed the process:
+
+**Identify → Assess Risk → Remediate → Validate → Document**
+## Security Automation
+
+A Bash-based Azure CLI security review script was created:
+
+`scripts/azure-security-review.sh`
+
+The script validates:
+
+- Virtual Network configuration
+- Subnet and NSG associations
+- NSG security rules
+- Managed identity RBAC assignments
+- SSH source restrictions
+- Removal of temporary insecure rules
+- Removal of excessive Contributor permissions
+
+  ## Project Documentation
+
+- [Architecture](docs/architecture.md)
+- [Project Journal](docs/project-journal.md)
+- [Security Findings](docs/security-findings.md)
+- [Final Security Assessment](docs/final-security-assessment.md)
+- [Evidence](docs/evidence/)
+- [Automation Script](scripts/azure-security-review.sh)
 
 ## Project Objectives
 
